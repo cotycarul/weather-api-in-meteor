@@ -2,11 +2,13 @@
     <title>Weather</title>
 </head>
 <body style="background-color: beige">
-<div style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white"><h1
-        style="align-content: center">Weather API!</h1>
+<div class="row" style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white"><h1
+        class="col m6 offset-m3">Weather API!</h1>
     {{> Search}}
 </div>
 </body>
+
+
 <template name="Search">
     <div class="row">
         <div class="input-field col m6 offset-m3">
@@ -14,9 +16,18 @@
             <input type="text" name="city-name" placeholder="City">
             <a class="waves-effect waves-light btn-flat z-deph-3 btn red" id="ok">O.K.</a>
         </div>
+
     </div>
-    <div class="row" id="showWeather"></div>
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <img src="{{ imagePath }}" alt="">
+            <div id="showWeather">{{ showWeather }}</div>
+        </div>
+    </div>
+
 </template>
+
+
 <template name="autolocate">
     <a class="waves-effect waves-light btn-flat z-deph-3 btn red" id="autoLocate">Weather in your location</a>
 </template>
