@@ -53,8 +53,8 @@ var SearchHelper = {
             var Temperature = results.data.main.temp - 273.15;
             Temperature = Math.round(Temperature);
             SearchHelper.showWeatherMain(tpl, results);
-            //tpl.$("div#showWeather").html("Temperature in " + cityName + " is " + Temperature + " Celsius");
             tpl.showWeather.set("Temperature in " + cityName + " is " + Temperature + " Celsius");
+
         });
     },
     temp2: function (position) {
@@ -62,10 +62,18 @@ var SearchHelper = {
             var Temperature = results.data.main.temp - 273.15;
             Temperature = Math.round(Temperature);
             SearchHelper.showWeatherMain(templateSample, results);
-            //templateSample.$("div#showWeather").html("Temperature in your location is " + Temperature + " Celsius");
             templateSample.showWeather.set("Temperature in your location is " + Temperature + " Celsius");
         });
     }
 };
-// mutam events in template
-// nu mai setam valori cu jquery folosim numai reactivitate
+/*
+-facem o colectie "History" unde se vor stoca ultimele requesturi
+-cand se da un GET catre server,sa se salveze intro clasa:
+    {
+        temperature: number,
+        weather:String(ex.Rain,Clouds,Clear),
+        location:String(orasul sau coordonatele ex.:Iasi ; 47.232134 13.23456 : )
+        createdAt: new  Date(),
+    }
+-toate acestea sa fie afisate intrun div separat de celelalte lucruri
+ */
