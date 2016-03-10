@@ -1,6 +1,5 @@
 var templateSample = undefined;
-
-
+Meteor.subscribe('history');
 Template.Search.helpers({
     'imagePath': function () {
         return Template.instance().imagePath.get();
@@ -10,8 +9,8 @@ Template.Search.helpers({
     }
 });
 Template.lastReq.helpers({
-    'req': function() {
-        return History.find({},{limit: 10,sort:{createdAt: -1}});
+    'req': function () {
+        return History.find({}, {sort: {createdAt: -1}});
     }
 });
 
@@ -37,6 +36,10 @@ Template.Search.events({
             alert("Geolocation is not supported by this browser.");
         }
     }
+});
+
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
 });
 
 var SearchHelper = {
@@ -71,14 +74,4 @@ var SearchHelper = {
         });
     }
 };
-/*
--facem o colectie "History" unde se vor stoca ultimele requesturi
--cand se da un GET catre server,sa se salveze intro clasa:
-    {
-        temperature: number,
-        weather:String(ex.Rain,Clouds,Clear),
-        location:String(orasul sau coordonatele ex.:Iasi ; 47.232134 13.23456 : )
-        createdAt: new  Date(),
-    }
--toate acestea sa fie afisate intrun div separat de celelalte lucruri
- */
+
