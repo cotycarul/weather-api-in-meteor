@@ -5,9 +5,10 @@
 <div class="row" style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white"><h1
         class="col m6 offset-m3">Weather API!</h1>
     {{> Search}}
-    {{> lastReq}}
-</div>
 
+</div>
+<br>
+{{> lastReq}}
 </body>
 
 
@@ -33,13 +34,15 @@
 <template name="autolocate">
     <a class="waves-effect waves-light btn-flat z-deph-3 btn red" id="autoLocate">Weather in your location</a>
 </template>
+
 <template name="lastReq">
     <div class="row"
          style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white">
-        {{#each weather}}
-            <div>
-                <p>Location:{{location}}; Temperature:{{temperature}}; Weather:{{weather}}; Requested At:{{date}}</p>
-            </div>
+        <h1>History</h1>
+        {{#each req}}
+            <ul>
+                <li><p>Location:{{location}}; Temperature:{{temperature}}; Weather:{{weather}}; Requested At:{{createdAt}}</p></li>
+            </ul>
         {{/each}}
     </div>
 </template>

@@ -9,6 +9,11 @@ Template.Search.helpers({
         return Template.instance().showWeather.get();
     }
 });
+Template.lastReq.helpers({
+    'req': function() {
+        return History.find({},{limit: 10,sort:{createdAt: -1}});
+    }
+});
 
 Template.Search.onCreated(function () {
     this.imagePath = new ReactiveVar(null);

@@ -1,4 +1,4 @@
-var History = new Mongo.Collection("history");
+
 
 Meteor.methods({
     checkWeather: function (cityName) {
@@ -22,7 +22,7 @@ Meteor.methods({
         History.insert({
             temperature: Math.round(results.data.main.temp - 273.15),
             weather: results.data.weather[0].main,
-            location: lat + " " + lon,
+            location: lat + "; " + lon,
             createdAt: new Date()
         });
         return results;
