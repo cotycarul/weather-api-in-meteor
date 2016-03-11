@@ -3,7 +3,6 @@
 </head>
 <body style="background-color: beige">
 <div class="row" style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white">
-    <div class="col m6 offset-m11">{{> loginButtons}}</div>
     <h1 class="col m6 offset-m3">Weather API!</h1>
     {{> Search}}
 
@@ -41,9 +40,9 @@
          style="margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px; background-color: white">
         <h1>History</h1>
         {{#each req}}
-            <ul>
-                <li><a class="btn-large blue waves-light "><h6>Requested by: {{username}}; Location: {{location}}; Temperature: {{temperature}}
-                    Celsius; Weather: {{weather}}; Requested At: {{createdAt}}</h6></a></li>
+            <ul class="collection">
+                <li class="collection-item blue waves-light"><h6>Requested by: {{username}}; Location: {{location}};
+                    Temperature: {{temperature}} Celsius; Weather: {{weather}}; Requested At: {{createdAt}}</h6></li>
             </ul>
         {{/each}}
     </div>

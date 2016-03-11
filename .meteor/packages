@@ -21,8 +21,7 @@ http
 materialize:materialize
 reactive-var
 
+useraccounts:bootstrap
+useraccounts:materialize
 
-#useraccounts:materialize
-accounts-ui
 accounts-password
-#useraccounts:bootstrap
